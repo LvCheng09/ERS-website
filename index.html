@@ -613,11 +613,6 @@ section .sec-num:before{background:#888}
 .tblwrap tbody tr:hover,tbody tr:hover{background:#fafafa}
 .chartbox{background:#fff;border-color:#e2e2e2}
 .chart-sub,.legend,.bargroup .lab{color:#636363}
-/* JS-built comparison bars and inline legend swatches use real grayscale. */
-.chartbox .barstack .bar:first-child{background:#202020!important}
-.chartbox .barstack .bar:nth-child(2){background:#adadad!important}
-.chartbox .legend span:first-child i{background:#202020!important}
-.chartbox .legend span:nth-child(2) i{background:#adadad!important}
 .chartbox svg,.chartbox canvas{filter:grayscale(1)}
 .pass{color:#111}
 figure img,.figanim{background:#fff;border-color:#e1e1e1;box-shadow:none}
@@ -637,6 +632,74 @@ footer a:hover{color:#000}
 /* Consistent focused navigation and keyboard access. */
 :focus-visible{outline:2px solid #161616;outline-offset:3px}
 @media(max-width:1080px){.hero-diagram{box-shadow:none}}
+</style>
+
+<style id="ers-spacious-editorial-layout">
+/* A white-paper editorial cover with a full-width one-line title on desktop.
+   This is intentionally the final stylesheet so old two-column rules cannot reassert themselves. */
+header.hero{background:#fff!important;overflow:visible!important}
+header.hero:before{display:none!important}
+.hero-inner{max-width:1520px!important;width:100%;padding:68px clamp(34px,6vw,96px) 0!important;margin-inline:auto}
+.hero-identity{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.11em;gap:13px;color:#595959}
+.hero-edition{color:#888}
+.hero-grid{display:flex!important;flex-direction:column;align-items:stretch;gap:0!important;min-height:0!important;padding:43px 0 42px!important}
+.hero-copy{padding:0!important;max-width:none!important;width:100%;min-width:0}
+.hero-index{font-size:11px;font-weight:600;letter-spacing:.15em;margin:0 0 23px;color:#737373}
+header.hero .hero-grid h1{font-family:Georgia,'Iowan Old Style','Times New Roman',serif;font-size:clamp(52px,6.05vw,96px)!important;line-height:1.055!important;letter-spacing:-.052em!important;font-weight:400!important;color:#111!important;white-space:nowrap;max-width:none!important;width:100%;margin:0 0 26px!important}
+header.hero .hero-grid h1 em{font-style:normal!important;color:#111!important;font-weight:400!important}
+header.hero .hero-grid .sub{font-family:Georgia,'Iowan Old Style','Times New Roman',serif;font-style:italic!important;font-size:clamp(25px,2.4vw,35px)!important;line-height:1.42!important;letter-spacing:-.021em!important;color:#585d62!important;max-width:1100px!important;margin:0 0 16px!important}
+.hero-deck{font-size:16px!important;line-height:1.7!important;max-width:990px!important;color:#666!important;margin:0 0 0!important}
+.hero-authors{margin:26px 0 0!important;padding:0!important;border:0!important;display:flex!important;flex-wrap:wrap;align-items:baseline;gap:6px 11px!important;color:#303030!important;font-size:14px!important;line-height:1.7}
+.hero-authors strong{font-weight:630}
+.hero-authors>span{color:#737373}
+.hero-authors .author-sep{color:#aaa}
+.hero-actions{margin:10px 0 0!important;display:flex!important;flex-wrap:wrap;gap:9px 28px!important;align-items:center}
+.hero-actions a.action-quiet{border:0!important;border-bottom:1px solid #b4b4b4!important;background:transparent!important;color:#303030!important;padding:0 0 1px!important;border-radius:0!important;min-width:0!important;text-decoration:none!important;font-size:14px!important;gap:5px!important;font-weight:500!important;line-height:1.65}
+.hero-actions a.action-quiet:hover{color:#000!important;border-color:#000!important}
+.hero-actions a.action-quiet span{font-size:13px}
+/* The earlier fixed rail covered title characters on wide screens; chapter index already appears below. */
+.floating-chapters{display:none!important}
+/* Instead of a cramped sidebar image, a large centered, monochrome reading figure follows the intro. */
+.hero-diagram{max-width:1070px!important;width:100%!important;margin:72px auto 0!important;padding:24px 32px 30px!important;background:#fff!important;border:0!important;border-top:1px solid #e4e4e4!important;border-bottom:1px solid #e4e4e4!important;box-shadow:none!important;border-radius:0!important}
+.diagram-topline{padding:0 0 12px!important}
+.diagram-svg{width:100%!important;max-width:760px!important;margin:0 auto!important}
+.diagram-controls{max-width:670px;margin:0 auto!important}
+.diagram-caption{max-width:670px!important;margin:14px auto 0!important;text-align:center}
+.hero-footer{margin-top:8px;padding:20px 0 22px!important}
+/* Wider display surfaces, conventional reading line length. */
+section:not(.editorial-overview) .wrap{max-width:1050px!important}
+section:not(.editorial-overview) .wide{max-width:1260px!important}
+section:not(.editorial-overview) h2{max-width:100%!important}
+.editorial-overview .overview-shell{max-width:1280px!important}
+/* Tablet sizes: title may wrap only once it cannot fit naturally. */
+@media(max-width:1160px){
+ .hero-inner{padding:53px 45px 0!important}
+ header.hero .hero-grid h1{font-size:clamp(45px,6.05vw,72px)!important;letter-spacing:-.055em!important}
+ .hero-diagram{margin-top:64px!important}
+}
+@media(max-width:820px){
+ .hero-inner{padding:40px 28px 0!important}
+ .hero-grid{padding:30px 0!important}
+ header.hero .hero-grid h1{font-size:clamp(43px,6.5vw,56px)!important;white-space:normal!important;line-height:1.09!important;margin-bottom:23px!important}
+ header.hero .hero-grid .sub{font-size:clamp(23px,3.6vw,29px)!important}
+ .hero-diagram{margin:54px auto 0!important;padding:16px 5px 22px!important}
+ .hero-footer{font-size:9px!important}
+}
+@media(max-width:540px){
+ .hero-inner{padding:30px 20px 0!important}
+ .hero-identity{font-size:9px!important;letter-spacing:.05em!important;white-space:normal!important}
+ .hero-index{margin-bottom:17px!important;font-size:10px!important}
+ header.hero .hero-grid h1{font-size:clamp(47px,11.4vw,61px)!important;white-space:normal!important;letter-spacing:-.063em!important;line-height:1.08!important}
+ header.hero .hero-grid .sub{font-size:24px!important;line-height:1.37!important}
+ .hero-deck{font-size:14px!important;line-height:1.75!important}
+ .hero-authors{font-size:12px!important;gap:5px 8px!important;margin-top:21px!important}
+ .hero-actions{gap:9px 20px!important;margin-top:12px!important}
+ .hero-actions a.action-quiet{font-size:12.5px!important}
+ .hero-diagram{margin-top:44px!important;padding:13px 0 16px!important}
+ .diagram-topline{font-size:9px!important}
+ .diagram-caption{text-align:left!important}
+ .hero-footer{gap:8px!important;font-size:8px!important}
+}
 </style>
 </head>
 <body>
@@ -661,17 +724,19 @@ footer a:hover{color:#000}
     <div class="hero-grid">
       <div class="hero-copy">
         <p class="hero-index">01 / FROM EVENTS TO REASONING</p>
-        <h1>From Events<br>to <em>Reasoning.</em></h1>
+        <h1>From Events to <em>Reasoning.</em></h1>
         <p class="sub">Hierarchical rule composition over explicit states.</p>
         <p class="hero-deck">A reasoning architecture where language becomes structured evidence, rules become executable operations, and every accepted conclusion carries a path that can be inspected.</p>
-        <div class="hero-authors"><span class="auth-label">A RESEARCH PROJECT BY</span><div><strong>Cheng Lyu</strong> <span>· University of Sydney</span><br><strong>Xueqi Wang</strong></div></div>
-        <div class="hero-actions">
-          <a class="action-main" href="#abstract">Explore the research <span aria-hidden="true">↘</span></a>
-          <a class="action-quiet" href="./ERS_paper.pdf" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>
+        <div class="hero-authors"><strong>Cheng Lyu</strong><span class="author-sep">·</span><span>University of Sydney</span><span class="author-sep">·</span><strong>Xueqi Wang</strong></div>
+        <div class="hero-actions" aria-label="Research links">
+          <a class="action-quiet" href="./ERS_paper.pdf" target="_blank" rel="noopener">Paper (PDF) <span aria-hidden="true">↗</span></a>
+          <a class="action-quiet" href="https://github.com/LvCheng09/Reasoning-AI-demo-v0.1" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+          <a class="action-quiet" href="research-log/">Research Log <span aria-hidden="true">↗</span></a>
+          <a class="action-quiet" href="#abstract">Read essay <span aria-hidden="true">↓</span></a>
         </div>
       </div>
       <div class="hero-diagram" aria-label="Interactive visual explanation of how ERS connects semantic interpretation, rule admission and control">
-        <div class="diagram-topline"><span>FIG. 00 / EXPLICIT REASONING</span><span class="live-mark"><span></span> INTERACTIVE</span></div>
+        <div class="diagram-topline"><span>FIG. 00 / THE ERS REASONING PIPELINE</span><span class="live-mark"><span></span> INTERACTIVE</span></div>
         <svg class="diagram-svg" viewBox="0 0 540 430" role="img" aria-label="Event graph with three connected decision stages">
           <defs>
             <linearGradient id="flowGradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e7e7d4"/><stop offset="1" stop-color="#f7f3e9"/></linearGradient>
