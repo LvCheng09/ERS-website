@@ -701,6 +701,85 @@ section:not(.editorial-overview) h2{max-width:100%!important}
  .hero-footer{gap:8px!important;font-size:8px!important}
 }
 </style>
+<style id="ers-mobile-equation-layout">
+/* On narrow screens, never let a mathematical line collide with controls or body text. */
+.eq .mobile-eq-number { display: none; }
+@media (max-width: 660px) {
+  .eq {
+    box-sizing: border-box;
+    padding: 58px 12px 17px !important;
+    margin: 28px 0 !important;
+    min-width: 0;
+    overflow: hidden !important;
+  }
+  .eq .mobile-eq-number {
+    display: inline;
+    position: absolute;
+    top: 15px;
+    left: 14px;
+    color: #555;
+    font: 600 12px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: .03em;
+  }
+  .eq .katex-display .tag { display: none !important; }
+  .eq .copy {
+    top: 12px !important;
+    right: 12px !important;
+    left: auto !important;
+    padding: 6px 10px !important;
+    min-height: 30px;
+    opacity: 1 !important;
+    position: absolute !important;
+    z-index: 2;
+    letter-spacing: .04em;
+    color: #444 !important;
+    border-color: #c9c9c9 !important;
+    background: #fff !important;
+    font-size: 11px !important;
+  }
+  .eq .katex-display {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #b0b0b0 transparent;
+    padding: 4px 2px 9px;
+    margin: 0 !important;
+    line-height: 1.5;
+  }
+  .eq .katex-display:focus-visible {
+    outline: 1px solid #aaa;
+    outline-offset: -1px;
+  }
+  .eq .eq-scroll-hint {
+    display: block;
+    margin: 3px 0 0;
+    padding: 0 3px;
+    font: 11px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: .005em;
+    text-align: right;
+    color: #777;
+  }
+  .eq .eq-scroll-hint[hidden] {display:none}
+  .eq .eq-note {
+    margin-top: 14px;
+    overflow-wrap: anywhere;
+    font-size: 13.5px;
+    line-height: 1.75;
+  }
+}
+/* Small-screen grouped bars should not widen the entire results section. */
+@media (max-width: 400px) {
+  #results .chartbox { padding: 14px 10px !important; }
+  #results .bars { gap: 5px !important; padding: 0 !important; }
+  #results .barstack { gap: 3px !important; }
+  #results .bar { width: clamp(9px, 3.6vw, 20px) !important; }
+  #results .bargroup .lab { overflow-wrap: anywhere; font-size: 10px !important; }
+}
+</style>
 </head>
 <body>
 
@@ -729,7 +808,7 @@ section:not(.editorial-overview) h2{max-width:100%!important}
         <p class="hero-deck">A reasoning architecture where language becomes structured evidence, rules become executable operations, and every accepted conclusion carries a path that can be inspected.</p>
         <div class="hero-authors"><strong>Cheng Lyu</strong><span class="author-sep">·</span><span>University of Sydney</span><span class="author-sep">·</span><strong>Xueqi Wang</strong></div>
         <div class="hero-actions" aria-label="Research links">
-          <a class="action-quiet" href="./ERS_paper.pdf" target="_blank" rel="noopener">Paper (PDF) <span aria-hidden="true">↗</span></a>
+          <a class="action-quiet" href="https://arxiv.org/abs/2610.22403" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a>
           <a class="action-quiet" href="https://github.com/LvCheng09/Reasoning-AI-demo-v0.1" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
           <a class="action-quiet" href="research-log/">Research Log <span aria-hidden="true">↗</span></a>
           <a class="action-quiet" href="#abstract">Read essay <span aria-hidden="true">↓</span></a>
@@ -770,7 +849,7 @@ section:not(.editorial-overview) h2{max-width:100%!important}
 </header>
 <section class="editorial-overview" aria-label="Essay navigation">
   <div class="overview-shell">
-    <div class="overview-intro"><span class="overview-overline">THE ARGUMENT</span><h2>What if reasoning could be <em>examined?</em></h2><p>Follow the mechanisms, the evidence, the limitations, and the next questions.</p><div class="overview-actions"><a href="./ERS_paper.pdf" target="_blank" rel="noopener">Full paper <span>↗</span></a><a href="research-log/">Research notebook <span>↗</span></a><a href="https://github.com/LvCheng09/Reasoning-AI-demo-v0.1" target="_blank" rel="noopener">Runnable demo <span>↗</span></a></div></div>
+    <div class="overview-intro"><span class="overview-overline">THE ARGUMENT</span><h2>What if reasoning could be <em>examined?</em></h2><p>Follow the mechanisms, the evidence, the limitations, and the next questions.</p><div class="overview-actions"><a href="https://arxiv.org/abs/2610.22403" target="_blank" rel="noopener">Full paper <span>↗</span></a><a href="research-log/">Research notebook <span>↗</span></a><a href="https://github.com/LvCheng09/Reasoning-AI-demo-v0.1" target="_blank" rel="noopener">Runnable demo <span>↗</span></a></div></div>
     <div class="overview-index"><div class="overview-index-label">READ THE CHAPTERS <span>11 SECTIONS</span></div>
       <a href="#gap"><span>01</span> Why valid paths matter <b>↗</b></a>
       <a href="#architecture"><span>02</span> Inside the architecture <b>↗</b></a>
@@ -1585,7 +1664,7 @@ section:not(.editorial-overview) h2{max-width:100%!important}
           <li><a href="https://github.com/LvCheng09/Reasoning-AI-demo-v0.1/blob/main/tech%20report/TECH_REPORT.ENGLISH.md" target="_blank" rel="noopener">Technical report (English)</a></li>
           <li><a href="https://github.com/LvCheng09/Reasoning-AI-demo-v0.1/blob/main/tech%20report/TECH_REPORT.CHINESE.md" target="_blank" rel="noopener">技术报告（中文）</a></li>
           <li><a href="https://github.com/LvCheng09/Reasoning-AI-demo-v0.1/blob/main/tech%20report/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture and module contracts</a></li>
-          <li>Paper (arXiv ID pending)</li>
+          <li><a href="https://arxiv.org/abs/2610.22403" target="_blank" rel="noopener">Paper on arXiv ↗</a></li>
           <li>Figures &amp; supplementary material (soon)</li>
         </ul>
       </div>
@@ -1838,6 +1917,67 @@ section:not(.editorial-overview) h2{max-width:100%!important}
     });
     eq.appendChild(btn);
   });
+
+
+  // ---- responsive mathematics: fit modestly long lines; scroll very long ones ----
+  // Keep the complete KaTeX and its source intact. Only presentation changes on small screens.
+  function layoutMobileEquations(){
+    var mobile = window.innerWidth <= 660;
+    [].slice.call(document.querySelectorAll('.eq')).forEach(function(eq){
+      var display = eq.querySelector('.katex-display');
+      if (!display) return;
+      var label = eq.querySelector('.mobile-eq-number');
+      if (!label) {
+        var tag = display.querySelector('.tag');
+        if (tag && tag.textContent.trim()) {
+          label = document.createElement('span');
+          label.className = 'mobile-eq-number';
+          label.textContent = tag.textContent.trim();
+          eq.insertBefore(label, eq.firstChild);
+        }
+      }
+      display.style.fontSize = '';
+      var hint = eq.querySelector('.eq-scroll-hint');
+      if (!mobile) {
+        if (hint) hint.hidden = true;
+        display.removeAttribute('tabindex');
+        display.removeAttribute('aria-label');
+        return;
+      }
+      // Font size scales only as far as it stays legible; extra-long formulas remain scrollable.
+      var available = Math.max(1, display.clientWidth - 7);
+      var required = display.scrollWidth;
+      var base = parseFloat(window.getComputedStyle(display).fontSize) || 16;
+      if (required > available) {
+        var preferred = base * available / required;
+        display.style.fontSize = Math.max(13.5, Math.min(base, preferred)).toFixed(2) + 'px';
+      }
+      var needsScroll = display.scrollWidth > display.clientWidth + 6;
+      if (!hint) {
+        hint = document.createElement('div');
+        hint.className = 'eq-scroll-hint';
+        hint.textContent = 'Swipe sideways to see the full equation  ↔';
+        display.insertAdjacentElement('afterend', hint);
+      }
+      hint.hidden = !needsScroll;
+      if (needsScroll) {
+        display.setAttribute('tabindex', '0');
+        display.setAttribute('aria-label', 'Equation — scroll horizontally for the full expression');
+      } else {
+        display.removeAttribute('tabindex');
+        display.removeAttribute('aria-label');
+      }
+    });
+  }
+  requestAnimationFrame(layoutMobileEquations);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(layoutMobileEquations).catch(function(){});
+  }
+  var equationResizeFrame = 0;
+  window.addEventListener('resize', function(){
+    if (equationResizeFrame) cancelAnimationFrame(equationResizeFrame);
+    equationResizeFrame = requestAnimationFrame(layoutMobileEquations);
+  }, {passive:true});
 
   // ---- animated Figure 1: start the SVG's internal motion when the figure enters view ----
   [].slice.call(document.querySelectorAll('.figanim')).forEach(function(host){
